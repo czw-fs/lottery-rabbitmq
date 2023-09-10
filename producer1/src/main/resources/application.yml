@@ -1,0 +1,41 @@
+server:
+  port:8888
+
+#Spring整合Mybatis
+spring:
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/lottery?characterEncoding=utf8&serverTimezone=Asia/Shanghai
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: fsfs
+
+
+
+
+  # 配置RabbitMQ相关信息
+  # 当创建RabbitMQ容器的时候，不提供用户名和密码配置，自动创建用户guest，密码guest。
+  # guest用户只能本地访问RabbitMQ。
+
+  rabbitmq:
+    host: localhost # RabbitMQ服务器的IP。默认localhost
+    port: 5672 # RabbitMQ服务器的端口。
+    username: guest # RabbitMQ的访问用户名。默认guest。
+    password: guest # RabbitMQ的访问密码。默认guest
+    # 注意生产者一定要配置这个,消费者不用
+    virtual-host: / # 连接RabbitMQ中的哪一个虚拟主机。默认 /
+
+
+
+mybatis:
+  #定义别名包
+  type-aliases-package: com.example.lottery.model
+  #配置映射文件路径
+  mapper-locations: classpath:/mapper/*.xml
+  configuration:
+    #打映sql语句
+    #开启驼峰映射
+    map-underscore-to-camel-case: true
+
+
+
+

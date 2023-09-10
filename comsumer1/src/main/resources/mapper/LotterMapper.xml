@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.lottery.mapper.LotteryMapper">
+    <insert id="insert2">
+        insert into
+        winner(participant_id, award_id)
+        values (#{participantId},#{awardId});
+    </insert>
+
+    <select id="getAllAward2" resultType="com.example.lottery.model.Award">
+        select id ,name,count
+        from award
+    </select>
+    <select id="selectWinner2" resultType="com.example.lottery.model.LotteryWinner">
+        select *
+        from winner
+    </select>
+    <select id="selectWinnerByAwardId1" resultType="com.example.lottery.model.LotteryWinner">
+            select *
+            from winner
+            where award_id = #{awardId}
+    </select>
+
+    <select id="selectAwardCount" resultType="com.example.lottery.model.Award">
+        select *
+        from award
+        where id = #{awardId}
+    </select>
+</mapper>
